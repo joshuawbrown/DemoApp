@@ -1,0 +1,80 @@
+<: PERL :>
+use Data::Dumper;
+use Time::Piece;
+
+my %status_colors = (
+	complete => ' btn-success',
+	error    => ' btn-warning',
+	invalid  => ' btn-danger',
+);
+
+
+<: /PERL :>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Console</title>
+		<link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+		<style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+      table.my_nobrs td { white-space: nowrap; } 
+    </style>
+		<link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/bootstrap/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/bootstrap/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/bootstrap/ico/apple-touch-icon-57-precomposed.png">
+
+  </head>
+  
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="#" rel="noreferrer">Console</a>
+					<p class="navbar-text pull-right"><a href="/app/Login?command=logout" target='_foo'>Logout</a></p>
+        </div>
+      </div>
+    </div>
+        
+		<div class="container">
+		
+				<table class="table table-bordered table-condensed well my_nobrs">
+					<thead><tr>
+						<td>Date</td>
+						<td>Status</td>
+						<td>Product</td>
+						<td>Name</td>
+						<td>Email</td>
+						<td>Order</td>
+					</tr></thead>
+					
+					<tbody>
+						: foreach my $row (@{ $Args{list}{rows} }) {
+						: my $t = Time::Piece->new($row->{key});
+						<tr>
+							<td><: $t->strftime("%F %H:%M") :></td>
+							<td><button class="btn btn-mini<: $status_colors{$row->{value}{status}} :>"><: $row->{value}{status} :></buton></td>
+							<td><: $row->{value}{product} :></td>
+							<td><: $row->{value}{first_name} . ' ' . $row->{value}{last_name} :></td>
+							<td><: $row->{value}{email} :></td>
+							<td><: $row->{value}{order_id} :></td>		
+						</tr>					
+						: }
+					</tbody>
+				</table>
+					
+    </div> <!-- /container -->
+    
+  </body>
+</html>
+  

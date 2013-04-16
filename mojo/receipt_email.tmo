@@ -1,0 +1,198 @@
+<html lang="en"><head>
+		<meta charset="utf-8">
+		<title>Cinematic Profits</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<style type="text/css">
+			/********* resets *************/
+			body {
+				font-size: 62.5%; /*this makes fonts 10px */
+				font-family: Arial, Helvetica, sans-serif;
+			}
+			* {
+				margin: 0;
+				padding: 0;
+				border-collapse: collapse;
+				border-spacing: 0;
+			}
+			img {
+				border: 0;
+				vertical-align: bottom; 
+			}
+			input {
+				vertical-align: bottom;
+			}
+			.container {
+				width: 600px;
+				margin-left: 0;
+				margin-right: 0;
+			}
+			h1 {
+				padding: 10px 0;
+				font-size: 23px;
+			}
+			h2 {
+				padding: 10px 0;
+				font-size: 20px;
+			}
+			h3 {
+				font-size: 13px;
+				color: #00d;
+			}			
+			.navbar {
+				background: #2C2C2C;
+				color: white;
+				padding-left: 20px;
+				border-radius: 4px;
+			}
+			
+			.downloads {
+				width: 600px;
+				background: #F5F5F5;
+				margin-top: 10px;
+				padding-bottom: 10px;
+				border-radius: 4px;
+			}
+			.downloads table {
+				width: 560px;	
+				margin: 20px;
+			}
+			.downloads h2 {
+				text-align: center;
+				padding-top: 10px !important;
+			}
+			.downloads h4 {
+				padding: 0 30px;
+				text-align: left;
+			}
+			.downloads h5 {
+				padding: 0 30px;
+				text-align: right;
+			}
+			.downloads .price {
+				text-align: right;
+			}
+			.lefter {
+				text-align: left;
+			}
+			.downloads td {
+				padding-bottom: 10px;
+			}
+			
+			.receipt {
+				width: 600px;
+				background: #F5F5F5;
+				margin-top: 40px;
+				padding-bottom: 10px;
+				border-radius: 4px;
+			}
+			.receipt table {
+				width: 560px;	
+				margin: 20px;
+			}
+			.receipt h2 {
+				text-align: center;
+				padding-top: 10px !important;
+			}
+			.receipt h4 {
+				padding: 0 30px;
+				text-align: left;
+			}
+			.receipt h5 {
+				padding: 0 30px;
+				text-align: right;
+			}
+			.receipt .price {
+				text-align: right;
+			}
+			.receipt td {
+				padding: 10px;
+				border: 1px solid gray;
+			}
+			
+			.contact {
+				margin-top: 40px;
+				width: 600px;
+				padding-bottom: 10px;
+			}
+			.contact h2 {
+				padding: 0 20px 10px 20px;
+				font-size: 1.4em;
+			}
+			.contact p {
+				padding: 0 20px 10px 20px;
+				font-size: 1.4em;
+			}
+			
+			.terms, .title {
+				text-align: center;
+			}
+			.terms, p {
+				padding: 10px 20px;
+			}
+		</style>
+	</head>
+
+	<body><br><br>
+		<center>
+		<div class="container content" style="border: solid 1px #ddd;">
+			<div class="navbar">
+				<div class="navbar-inner">
+					<h1 class="secure">Purchase Confirmation</h1>
+				</div><!-- /navbar-inner -->
+			</div>
+			<br>
+			<h2 class="title">Dear <: $Args{customer}{contact}{firstName} :>:<br><br>
+			Congratulations and welcome to Cinematic Profits!<br>
+			Your Purchase Was Successful.
+			</h2>
+
+			<div class="center">
+				<div class="downloads">
+					<div class="well">
+						<h2 style='color: #008;'>Your Online Receipt</h2>
+						<div>
+							<h3>You can access your online receipt and downloads at any time by using this link:</h3>
+							: my $url = "http://lpc.bizzblizz.net/receipt/$Args{id}";
+							<br>
+							<h3><a href='<: $url :>' target='receipt_<: $Args{id} :>'><: $url :></a></h3>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="center">
+				<div class="contact">
+					<div class="well">
+						<h2>Contact Information:</h2>
+						<p>McReaSoft Solutions, Inc. 9545 Grossmont Summit Drive La Mesa, Ca. 91941</p>
+						<p>Email: mcreasupport@gmail.com</p>
+						<p>Customer Support Website: www.mcreasupport.com</p>
+						<p>Toll Free: (877) 342-0512</p>
+						<br>
+						<p>Mon-Fri: 8am to 10pm,</p>
+						<p>Sat-Sun: 10-6pm EST.</p>
+						<p>(closed holidays , CAN and US)</p>
+					</div>
+				</div>
+			</div>
+			<div class="foot terms">
+				<div>
+					<p>"This site and the products and services offered on this site are not associated, affiliated, endorsed, or sponsored by Facebook, nor have they been reviewed tested or certified by Facebook." </p>
+					<div class="center"></div>		
+					<p>Copyright &copy; JPL Publishing, Phillip Long, David Westbarn, Bill McRea </p>		<p>
+						<a href="http://content.bizzblizz.com/cinematicprofits/static/legal/privacy.html" target="_blank">Privacy Policy</a> | 
+						<a href="http://content.bizzblizz.com/cinematicprofits/static/legal/disclaimer.html" target="_blank">Website Disclaimer</a> |			
+						<a href="http://content.bizzblizz.com/cinematicprofits/static/legal/terms.html" target="_blank">Terms and Conditions</a> |			
+						<a href="http://content.bizzblizz.com/cinematicprofits/static/legal/contact.html" target="_blank">Contact Us</a>		
+					</p>	
+				</div>
+			</div>
+
+		</div> <!-- /container -->
+		</center>
+
+	</body></html>
+
+

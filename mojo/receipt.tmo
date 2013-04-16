@@ -1,0 +1,154 @@
+<: PERL :>
+my %products = (
+	cinematic_profits => 'Cinematic Profits',
+	unlimited_license => 'Cinematic Profits Unlimited license',
+	twitter_traffic =>   'Twitter Traffic Tool & Training',
+	facebook_training => 'Facebook Pages/Branding/Training',
+);
+
+my %active = map { $_->{product} => 1 } @{$Args{customer}{history}};
+
+
+
+<: /PERL :>
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Cinematic Profits Receipt</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<!-- Le styles -->
+		<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+
+		<link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+<!-- 		<link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet"> -->
+		<script src="/bootstrap/js/bootstrap.min.js"></script>
+
+		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="http://content.bizzblizz.com/cinematicprofits/offer/20120409/css/receipt.css" rel="stylesheet">
+		<script src="http://yourbizzlinks.com/tracker?merchantId=16gt05ZlGS0K"></script>
+		<script type="text/javascript" src="http://content.bizzblizz.com/cinematicprofits/static/js/terms.js"></script>
+
+	</head>
+
+	<body>
+		<div class="container content">
+			<div class="navbar">
+				<div class="navbar-inner center">
+						<h1 class="secure">Your Downloads &amp; Permanent Receipt</h1>
+				</div><!-- /navbar-inner -->
+			</div>
+			<h1 class="title" style='padding-bottom: 0px;'>Congratulations!<br />And Welcome to Cinematic Profits!</h1>
+			
+			<h3 class="title" style='color: #009; font-size: 26px;'>Please bookmark this page now!</h2>
+			
+			<div class="center">
+				<div class="downloads">
+					<div class="well">
+						<h2>Your Downloads</h2>
+						<div class="center">
+							<table class="table">
+							
+							: if ($active{cinematic_profits} or $active{unlimited_license}) {
+								<tr>
+									<td>
+										<h4>Cinematic Profits</h4>
+									</td>
+									<td>
+										<h5><a href="http://content.bizzblizz.com/cinematicprofits/static/downloads/CinematicProfits.zip" class="btn btn-primary"><i class="icon-download icon-white"> </i> Download</a></h5>
+									</td>
+								</tr>
+							:}
+
+							: if ($active{twitter_traffic}) {
+								<tr>
+									<td>
+										<h4>Move Twitts</h4>
+									</td>
+									<td>
+										<h5><a href="http://content.bizzblizz.com/cinematicprofits/static/downloads/MovieTwitts.zip" class="btn btn-primary"><i class="icon-download icon-white"> </i> Download</a></h5>
+									</td>
+								</tr>
+							:}
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+	
+	
+			<div class="center">
+				<div class="downloads">
+					<div class="well">
+						<h2 style='color: #009;'>Registered To:
+						<: $Args{customer}{contact}{firstName} :>
+						<: $Args{customer}{contact}{lastName} :></h3>
+						
+						<h3>For all your McReaSoft Products, your activation codes are:</h3><br>
+						<h3 style='color: #009;'>Email: <: lc($Args{customer}{contact}{email}) :><br>
+						Password: <: $Args{customer}{password} :></h3>
+						</h3>
+					</div>
+				</div>
+			</div>
+			
+			<div class="center">
+				<h2>Your Receipt</h2><br />
+				<table class="table table-striped receipt table-bordered">
+					<thead>
+						<tr>
+							<th>Product</th>
+							<th>Status</th>
+							<th class="price">Price</th>
+						</tr>
+					</thead>
+					<tbody>
+					: foreach my $item (@{$Args{customer}{history}}) {
+						<tr>
+							<td><: $products{$item->{product}} :></td>
+							<td>Paid</td>
+							<td class="price">$<: sprintf("%.2f", $item->{price}) :></td>
+						</tr>
+					: }
+					</tbody>
+				</table>
+			</div>
+			
+			
+			<div class="center">
+				<div class="contact">
+					<div class="well">
+						<h2>Our Contact Information:</h2>
+						<p>McReaSoft Solutions, Inc.<br>
+						9545 Grossmont Summit Drive<br>
+						La Mesa, Ca. 91941</p>
+						<p>Email: mcreasupport@gmail.com</p>
+						<p>Customer Support Website: www.mcreasupport.com</p>
+						<p>Toll Free: (877) 342-0512</p>
+						<br />
+						<p>Mon-Fri: 8am to 10pm,</p>
+						<p>Sat-Sun: 10-6pm EST.</p>
+						<p>(Closed Holidays, CAN and US)</p>
+					</div>
+				</div>
+			</div>
+			<div class="foot terms">
+
+			</div>
+
+		</div> <!-- /container -->
+
+	</body>
+</html>
+
+<!-- 
+
+ -->
+

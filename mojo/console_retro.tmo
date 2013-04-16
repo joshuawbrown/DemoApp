@@ -1,0 +1,100 @@
+<: GLOBAL :>
+	use Data::Dumper;
+<: /GLOBAL :>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+<head>
+	<title>LPC Dev Server</title>
+<style>
+body {
+	font-size: 62.5%; /*this makes fonts 10px */
+}
+* {
+	margin: 0;
+	padding: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+img {
+	border: 0;
+	vertical-align: bottom; 
+}
+input {
+	vertical-align: bottom;
+}
+.center {
+	text-align: center;
+}
+.cursor {
+	width: 14px;
+	background: white;
+}
+body {
+	text-align: center;
+	background: #313131;
+}
+#page {
+	text-align: left;
+	margin: 50px auto;
+	width: 800px;
+}
+#content {
+	background: #000000;
+	padding: 50px;
+}
+
+p {
+	font-size: 22px;
+	padding-bottom: 22px;
+	font-family: Courier;
+	color: #4bc85d;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+#blinking_cursor {
+	background: #4bc85d;
+}
+</style>
+</head>
+<body>
+	<div id="page">
+		<div id="content">
+			<p class="center">Apple ][</p>
+			<p class="center">dos version 3.3&nbsp;&nbsp;system master</p>
+			<p class="center">January 1, 1983</p>
+			<p>copyright apple computer,inc. 1980,1982</p>
+			<p>]run remoteipcheck</p>
+			<p>Remote IP: <: $Args{headers}{'X-Real-Ip'} :></p>
+			<p>]<span id="blinking_cursor">&nbsp;</span></p>
+		</div>
+	</div>
+	<script>
+	var blinking_cursor = document.getElementById('blinking_cursor');
+	setInterval('blink()', 700)
+	
+	var blinkToggle = 0;
+	function blink() {
+		if (blinkToggle) {
+			blinking_cursor.style.background = blinking_cursor.parentNode.style.color;
+			blinkToggle = 0;
+		} else {
+			console.log('yo');
+			blinking_cursor.style.background = 'transparent';
+			blinkToggle = 1;
+		}
+	}	
+	</script>
+
+	<center>
+	<div style='background: white; padding: 0px; text-align: left; width: 800px;'>
+		<div style='padding: 25px; font-size: 11px;'>
+		<pre><: Dumper($Args) :></pre>
+		</div>
+	</div>
+	</center>
+
+</body>
+</html>
+

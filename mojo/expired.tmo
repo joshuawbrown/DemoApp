@@ -1,0 +1,45 @@
+<: GLOBAL :>
+	use Data::Dumper;
+<: /GLOBAL :>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome to Demo App</title>
+		<link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+		<style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+		<link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/bootstrap/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/bootstrap/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/bootstrap/ico/apple-touch-icon-57-precomposed.png">
+
+  </head>
+  
+  <body>
+        
+		<div class="container">
+		
+		<div class="row">
+			<div class="span4 offset4 well">
+				: my $login_url = $Args{app_path} . "/Login";
+				<h2><nobr>Logged Out</nobr></h2>
+				<br>
+				<p>I hate to tell you this, but your session is expired. <a href='<: $login_url :>'>Click Here</a> to log back in!</p>
+			</div>
+		</div>
+		
+    </div> <!-- /container -->
+  
+  </body>
+</html>
+  

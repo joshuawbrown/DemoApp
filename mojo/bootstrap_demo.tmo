@@ -1,0 +1,71 @@
+<: GLOBAL :>
+	use Data::Dumper;
+<: /GLOBAL :>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome to Demo App</title>
+		<link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+		<style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+		<link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/bootstrap/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/bootstrap/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/bootstrap/ico/apple-touch-icon-57-precomposed.png">
+
+  </head>
+  
+  <body>
+        
+		<div class="container">
+		
+		<div class="row">
+			<div class="span4 offset4">
+
+				<form method=POST class="well">
+					<fieldset>
+						<legend>Welcome to infinity</legend>
+						
+						<div class="control-group">
+							<label class="control-label" for="input01">Username</label>
+							<div class="controls">
+								<input type="text" class="span3" id="input01" name='username'>
+							</div>
+						</div>
+						
+						<div class="control-group">
+							<label class="control-label" for="input02">Password</label>
+							<div class="controls">
+								<input type="password" class="span3" id="input02" name='password'>
+							</div>
+						</div>
+						
+					</fieldset>
+					
+					<button type="button" class="btn"><i class="icon-question-sign"></i> Forgot Password</button>
+					<button type="submit" class="btn btn-primary"><i class="icon-user icon-white"></i> Login</button>	
+
+				</form>
+			
+			</div>
+		</div>
+		
+		<h1>We have code samples.</h1>
+		: my $code = Dumper($Args);
+		<pre><code><: $code :></code></pre>
+			
+    </div> <!-- /container -->
+  
+  </body>
+</html>
+  
